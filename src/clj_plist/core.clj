@@ -1,5 +1,6 @@
 (ns clj-plist.core
-  (:import (org.joda.time DateTime))
+  (:import (org.joda.time DateTime)
+           (org.apache.commons.codec.binary Base64))
   (:gen-class))
 
 (require 'clojure.xml)
@@ -18,9 +19,13 @@
   [c]
   (apply vector (for [item (c :content)] (content item))))
 
+(defmethod content :data
+  [c]
+  (.decode (Base64.) (first-content c)))
+
 (defmethod content :date
   [c]
-  (org.joda.time.DateTime. (first-content c)))
+  (DateTime. (first-content c)))
 
 (defmethod content :dict
   [c]
