@@ -24,8 +24,8 @@ The library has one public function, `parse-plist`, which takes as input a File,
 
 ### Invocation example
 
-    (require (org.github.bdesham.clj-plist parse-plist))
-    (def my-data (parse-plist (java.io.File. "MyPropertyList.plist")))
+    (use 'clj-plist.core)
+    (parse-plist (java.io.File. "MyPropertyList.plist"))
 
 ## Example
 
@@ -61,7 +61,7 @@ The library has one public function, `parse-plist`, which takes as input a File,
 
 ## Notes
 
-* Trying to parse a very large property list can cause a heap overflow.  I’m looking into it.
+* Trying to parse a very large property list can cause a heap overflow, presumably due to my poor understanding of recursion.  I’m looking into it.
 * Binary plist files are not (yet?) supported.
 
 ## References
@@ -70,10 +70,8 @@ For more information on plist files, see the [Apple man page for property list f
 
 ## License
 
-Copyright © 2011, Benjamin Esham.
+Copyright © 2011, Benjamin Esham.  This software is released under the following version of the MIT license:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following condition: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 **The software is provided “as is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.**
