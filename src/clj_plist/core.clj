@@ -1,14 +1,13 @@
 (ns clj-plist.core
   (:import (org.apache.commons.codec.binary Base64)
            (org.joda.time DateTime))
-  (:require clojure.xml)
-  (:gen-class))
+  (:require clojure.xml))
 
 (defn- first-content
   [c]
   (first (c :content)))
 
-(defmulti content ^{:private true} (fn [c] (c :tag)))
+(defmulti content (fn [c] (c :tag)))
 
 (defmethod content :array
   [c]
