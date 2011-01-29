@@ -22,7 +22,7 @@ The library has one public function, `parse-plist`, which takes as input a File,
 	<tr><td>true</td><td>true</td></tr>
 </table>
 
-Invocation example:
+### Invocation example
 
     (require (org.github.bdesham.clj-plist parse-plist))
     (def my-data (parse-plist (java.io.File. "MyPropertyList.plist")))
@@ -63,6 +63,10 @@ Invocation example:
 
 * Trying to parse a very large property list can cause a heap overflow.  I’m looking into it.
 * Binary plist files are not (yet?) supported.
+
+## References
+
+For more information on plist files, see the [Apple man page for property list files](http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man5/plist.5.html).
 
 ## License
 
