@@ -1,19 +1,14 @@
 (ns clj-plist.core
-  (:import (org.joda.time DateTime)
-           (org.apache.commons.codec.binary Base64))
+  (:import (org.apache.commons.codec.binary Base64)
+           (org.joda.time DateTime))
+  (:require clojure.xml)
   (:gen-class))
 
-(require 'clojure.xml)
-
-(defn read-file
-  [filename]
-  (clojure.xml/parse (java.io.File. filename)))
-
-(defn first-content
+(defn- first-content
   [c]
   (first (c :content)))
 
-(defmulti content (fn [c] (c :tag)))
+(defmulti content ^{:private true} (fn [c] (c :tag)))
 
 (defmethod content :array
   [c]
@@ -56,5 +51,5 @@
   true)
 
 (defn parse-plist
-  [p]
-  (content (first-content p)))
+  [source]
+  (content (first-content (clojure.xml/parse source))))
