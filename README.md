@@ -62,7 +62,7 @@ The library has one public function, `parse-plist`, which takes as input a File,
 ## Notes
 
 * Trying to parse a very large property list can cause a heap overflow, presumably due to my poor understanding of recursion.  I’m looking into it.
-* Binary plist files are not (yet?) supported.
+* Binary plist files are not (yet?) supported.  In the meantime, you can use `plutil` on OS X to convert binary plist files to XML plist files via `/usr/bin/plutil -convert xml1 -o output.plist input.plist`.
 
 ## References
 
