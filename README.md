@@ -24,32 +24,36 @@ The library has one public function, `parse-plist`, which takes as input a File,
 
 ### Invocation example
 
-    (use 'clj-plist.core)
-    (parse-plist (java.io.File. "MyPropertyList.plist"))
+```clojure
+(use 'clj-plist.core)
+(parse-plist (java.io.File. "MyPropertyList.plist"))
+```
 
 ## Example
 
 ### Input plist file
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-    	<key>String example</key>
-    	<string>This is just some uninteresting text</string>
-    	<key>Array example</key>
-    	<array>
-    		<integer>2</integer>
-    		<real>3.14159</real>
-    	</array>
-    	<key>Boolean example</key>
-    	<true/>
-    	<key>Date example</key>
-    	<date>1969-07-20T07:56:00Z</date>
-    	<key>Data example</key>
-    	<data>YWJjZGVmZw==</data>
-    </dict>
-    </plist>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>String example</key>
+	<string>This is just some uninteresting text</string>
+	<key>Array example</key>
+	<array>
+		<integer>2</integer>
+		<real>3.14159</real>
+	</array>
+	<key>Boolean example</key>
+	<true/>
+	<key>Date example</key>
+	<date>1969-07-20T07:56:00Z</date>
+	<key>Data example</key>
+	<data>YWJjZGVmZw==</data>
+</dict>
+</plist>
+```
 
 ### Parsed Clojure version
 
