@@ -57,11 +57,13 @@ The library has one public function, `parse-plist`, which takes as input a File,
 
 ### Parsed Clojure version
 
-    {"Array example" [2 3.14159],
-     "Boolean example" true,
-     "Data example" #<byte[] [B@3ea86d12>,
-     "Date example" #<DateTime 1969-07-20T02:56:00.000-05:00>,
-     "String example" "This is just some uninteresting text"}
+```clojure
+{"Array example" [2 3.14159],
+ "Boolean example" true,
+ "Data example" #<byte[] [B@3ea86d12>,
+ "Date example" #<DateTime 1969-07-20T02:56:00.000-05:00>,
+ "String example" "This is just some uninteresting text"}
+```
 
 ## Notes
 
