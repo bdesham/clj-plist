@@ -25,7 +25,7 @@ The library has one public function, `parse-plist`, which takes as input a File,
 ### Invocation example
 
 ```clojure
-(use 'clj-plist.core)
+(use 'com.github.bdesham.clj-plist)
 (parse-plist (java.io.File. "MyPropertyList.plist"))
 ```
 

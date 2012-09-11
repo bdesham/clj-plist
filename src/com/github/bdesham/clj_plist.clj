@@ -1,4 +1,4 @@
-(ns clj-plist.core
+(ns com.github.bdesham.clj-plist
   (:import (org.apache.commons.codec.binary Base64)
            (org.joda.time DateTime))
   (:require clojure.xml))
