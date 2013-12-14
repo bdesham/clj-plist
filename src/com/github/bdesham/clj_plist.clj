@@ -11,7 +11,7 @@
 
 (defmethod content :array
   [c]
-  (apply vector (for [item (c :content)] (trampoline content item))))
+  (apply vector (for [item (c :content)] (content item))))
 
 (defmethod content :data
   [c]
@@ -23,7 +23,7 @@
 
 (defmethod content :dict
   [c]
-  (apply hash-map (for [item (c :content)] (trampoline content item))))
+  (apply hash-map (for [item (c :content)] (content item))))
 
 (defmethod content :false
   [c]
@@ -51,4 +51,4 @@
 
 (defn parse-plist
   [source]
-  (trampoline content (first-content (clojure.xml/parse source))))
+  (content (first-content (clojure.xml/parse source))))
