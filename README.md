@@ -1,10 +1,10 @@
 # clj-plist
 
-This is a Clojure library to parse the Property List (.plist) files that are nearly ubiquitous on Mac OS X.
+This is a Clojure library to parse the Property List (.plist) files that are ubiquitous on Mac OS X.
 
 ## Usage
 
-The library has one public function, `parse-plist`, which takes as input a File, an InputStream, or a String naming a URI to read for the plist data.  (More exactly, `parse-plist` just passes its argument to `clojure.xml/parse`, so any source usable with that function will work with `parse-plist`.)  The function returns a native Clojure data structure corresponding to the plist data, according to the following table:
+The library has one public function, `parse-plist`, which takes as input a File, an InputStream, or a String naming a URI to read for the plist data.  (`parse-plist` just passes its argument to `clojure.xml/parse`, so any source usable with that function will work with `parse-plist`.)  The function returns a native Clojure data structure corresponding to the plist data, according to the following table:
 
 <table>
 	<tr>
@@ -67,15 +67,18 @@ The library has one public function, `parse-plist`, which takes as input a File,
 
 ## Notes
 
-* Trying to parse a very large property list can cause a heap overflow, presumably due to my poor understanding of recursion.  I’m looking into it.
-* Binary plist files are not (yet?) supported.  In the meantime, you can use `plutil` on OS X to convert binary plist files to XML plist files via `/usr/bin/plutil -convert xml1 -o output.plist input.plist`.
+**This library is no longer under active development.** Pull requests are still welcome.
+
+The entire plist is sucked into memory at once, so there’s a relatively low limit on the size of the plist that can be loaded. (Trying to import my “iTunes Music Library.xml”, which is 16.2 MiB, causes a heap overflow on my system with the default Java memory limits.) Some sort of lazy loading would fix this.
+
+Binary plist files are not (yet?) supported.  In the meantime, you can use `plutil` on OS X to convert binary plist files to XML plist files via `/usr/bin/plutil -convert xml1 -o output.plist input.plist`.
 
 ## References
 
-For more information on plist files, see the [Apple man page for property list files](http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man5/plist.5.html).
+For more information on plist files, see the [Apple man page for property list files](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/plist.5.html).
 
 ## License
 
-Copyright © 2011–2012 Benjamin D. Esham (www.bdesham.info).
+Copyright © 2011–2014 [Benjamin D. Esham](http://esham.io).
 
 This project is distributed under the Eclipse Public License, the same as that used by Clojure. A copy of the license is included as “epl-v10.html” in this distribution.
