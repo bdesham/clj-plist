@@ -7,11 +7,11 @@
   [c]
   (first (c :content)))
 
-(defmulti content (fn [c] (c :tag)))
+(defmulti content :tag)
 
 (defmethod content :array
   [c]
-  (apply vector (for [item (c :content)] (content item))))
+  (apply vector (map content (c :content))))
 
 (defmethod content :data
   [c]
@@ -23,7 +23,7 @@
 
 (defmethod content :dict
   [c]
-  (apply hash-map (for [item (c :content)] (content item))))
+  (apply hash-map (map content (c :content))))
 
 (defmethod content :false
   [c]
