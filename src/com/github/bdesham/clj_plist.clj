@@ -3,6 +3,9 @@
            (org.joda.time DateTime))
   (:require clojure.xml))
 
+(def ^:private ^:dynamic *keyword-fn*
+  identity)
+
 (defn- first-content
   [c]
   (first (c :content)))
@@ -35,7 +38,7 @@
 
 (defmethod content :key
   [c]
-  (first-content c))
+  (*keyword-fn* (first-content c)))
 
 (defmethod content :real
   [c]
@@ -50,5 +53,8 @@
   true)
 
 (defn parse-plist
-  [source]
-  (content (first-content (clojure.xml/parse source))))
+  ([source]
+   (content (first-content (clojure.xml/parse source))))
+  ([source {:keys [keyword-fn]}]
+   (binding [*keyword-fn* keyword-fn]
+     (parse-plist source))))
