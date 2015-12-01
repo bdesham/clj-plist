@@ -3,15 +3,18 @@
            (org.joda.time DateTime))
   (:require clojure.xml))
 
+(def ^:private ^:dynamic *keyword-fn*
+  identity)
+
 (defn- first-content
   [c]
   (first (c :content)))
 
-(defmulti content (fn [c] (c :tag)))
+(defmulti content :tag)
 
 (defmethod content :array
   [c]
-  (apply vector (for [item (c :content)] (content item))))
+  (apply vector (map content (c :content))))
 
 (defmethod content :data
   [c]
@@ -23,7 +26,7 @@
 
 (defmethod content :dict
   [c]
-  (apply hash-map (for [item (c :content)] (content item))))
+  (apply hash-map (map content (c :content))))
 
 (defmethod content :false
   [c]
@@ -35,7 +38,7 @@
 
 (defmethod content :key
   [c]
-  (first-content c))
+  (*keyword-fn* (first-content c)))
 
 (defmethod content :real
   [c]
@@ -50,5 +53,8 @@
   true)
 
 (defn parse-plist
-  [source]
-  (content (first-content (clojure.xml/parse source))))
+  ([source]
+   (content (first-content (clojure.xml/parse source))))
+  ([source {:keys [keyword-fn]}]
+   (binding [*keyword-fn* keyword-fn]
+     (parse-plist source))))
