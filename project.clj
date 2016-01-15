@@ -1,6 +1,6 @@
 (defproject com.github.bdesham/clj-plist "0.10.0"
             :description "Library to parse property list (.plist) files"
-            :url "http://github.com/bdesham/clj-plist"
+            :url "https://github.com/bdesham/clj-plist"
             :license {:name "Eclipse Public License"
                       :url "http://www.eclipse.org/legal/epl-v10.html"
                       :comments "Same as Clojure"}
