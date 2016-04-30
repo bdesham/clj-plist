@@ -2,6 +2,16 @@
 
 This is a Clojure library to parse the Property List (.plist) files that are ubiquitous on Mac OS X.
 
+## Installation
+
+Add the following to the dependency list in your `project.clj`:
+
+    [com.github.bdesham/clj-plist "0.10.0"]
+
+See [the Clojars page][Clojars] for instructions for Gradle and Maven.
+
+[Clojars]: https://clojars.org/com.github.bdesham/clj-plist
+
 ## Usage
 
 The library has one public function, `parse-plist`, which takes as input a File, an InputStream, or a String naming a URI to read for the plist data.  (`parse-plist` just passes its argument to `clojure.xml/parse`, so any source usable with that function will work with `parse-plist`.)  The function returns a native Clojure data structure corresponding to the plist data, according to the following table:
