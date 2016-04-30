@@ -67,8 +67,6 @@ The library has one public function, `parse-plist`, which takes as input a File,
 
 ## Notes
 
-**This library is no longer under active development.** Pull requests are still welcome.
-
 The entire plist is sucked into memory at once, so there’s a relatively low limit on the size of the plist that can be loaded. (Trying to import my “iTunes Music Library.xml”, which is 16.2 MiB, causes a heap overflow on my system with the default Java memory limits.) Some sort of lazy loading would fix this.
 
 Binary plist files are not supported (see [issue 1]).  In the meantime, you can use `plutil` on OS X to convert binary plist files to XML plist files via `/usr/bin/plutil -convert xml1 -o output.plist input.plist`.
@@ -79,14 +77,20 @@ Binary plist files are not supported (see [issue 1]).  In the meantime, you can 
 
 For more information on plist files, see the [Apple man page for property list files](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/plist.5.html).
 
+## Author
+
+This library was written by [Benjamin Esham](https://esham.io).
+
+This project is [hosted on GitHub](https://github.com/bdesham/clj-plist). Please feel free to submit pull requests.
+
 ## Version history
 
-* Version 0.10.0 (2016-01-15)
+* 0.10.0 (2016-01-15)
     * Allow the specification of a `keyword-fn` function to be applied to `<key>` elements (thanks [Ben Cook]!)
     * Add a test (thanks [Marc O’Morain]!)
     * Add support for CircleCI (thanks [Marc O’Morain]!)
     * Clojure 1.5 is now required.
-* Version 0.9.1 (2012-09-11)
+* 0.9.1 (2012-09-11)
     * Initial public release.
 
 [Ben Cook]: https://github.com/blx
@@ -94,6 +98,4 @@ For more information on plist files, see the [Apple man page for property list f
 
 ## License
 
-Copyright © 2011–2016 [Benjamin D. Esham](https://esham.io).
-
-This project is distributed under the Eclipse Public License, the same as that used by Clojure. A copy of the license is included as “epl-v10.html” in this distribution.
+Copyright © 2012, 2016 Benjamin D. Esham. This project is distributed under the Eclipse Public License, the same as that used by Clojure. A copy of the license is included as “epl-v10.html” in this distribution.
