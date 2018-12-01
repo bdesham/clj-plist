@@ -2,6 +2,8 @@
 
 This is a Clojure library to parse the Property List (.plist) files that are ubiquitous on Mac OS X.
 
+⚠️ **Notice:** This project is no longer maintained. It may have severe security or compatibility problems. Use it at your own risk!
+
 ## Installation
 
 Add the following to the dependency list in your `project.clj`:
@@ -91,7 +93,7 @@ For more information on plist files, see the [Apple man page for property list f
 
 This library was written by [Benjamin Esham](https://esham.io).
 
-This project is [hosted on GitHub](https://github.com/bdesham/clj-plist). Please feel free to submit pull requests.
+This project is [hosted on GitHub](https://github.com/bdesham/clj-plist). It is **no longer being developed** and is left on GitHub only in the hope that someone will find the code interesting or useful.
 
 ## Version history
 
